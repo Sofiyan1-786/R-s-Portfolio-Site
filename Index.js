@@ -7,7 +7,7 @@ function menueToggle(){
 
 var typed = new Typed(".typing", {
     strings: ["Yotuber", "Progammer", "Vlogger","Dark Theme Person"
-                ,"C++", "Miro-processor", "GhatalToPoland","RoboticsRevolution"],
+                ,"C++", "Mirco-processor", "GhatalToPoland","RoboticsRevolution"],
             typeSpeed: 100,
             backSpeed: 60,
             loop:true
