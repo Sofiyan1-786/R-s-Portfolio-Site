@@ -494,7 +494,7 @@ section.active .circlebiggie{
 .specific-body-wrapper .container {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 3fr 4fr;
     gap: 1em;
     width: 800px;
     height: 500px;
@@ -566,3 +566,7 @@ section.active .circlebiggie{
     opacity: 1;
     transition-delay: 400ms;
 }
+@media only screen and (max-width: 768px) {
+    .specific-body-wrapper {
+      display: none;
+    }
