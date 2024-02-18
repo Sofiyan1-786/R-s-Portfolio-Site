@@ -1,0 +1,480 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:-apple-system,BlinkMacSystemFont,
+    "Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",
+    sans-serif;
+}
+
+body{
+    position: relative;
+}
+
+.load{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    opacity: 1;
+    background-color: #042104;
+    animation: AnimateBg 10s linear infinite;
+    transition:  all 0.5s ease-in-out;
+}
+
+@keyframes animateScale{
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(0); 
+    }
+}
+
+@keyframes AnimateBg{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.load .loader{
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.load .loader span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+}
+
+.load .loader span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #00ff0a;
+    box-shadow: 0 0 10px #00ff0a,
+                0 0 20px #00ff0a,
+                0 0 40px #00ff0a,
+                0 0 60px #00ff0a,
+                0 0 80px #00ff0a,
+                0 0 100px #00ff0a;
+    animation: animateScale 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+.load-fin{
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    background: rgba(0, 0, 0,0.9);
+    border-radius: 50%;
+    position: absolute;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    animation: cursorAnim .5s infinite alternate;
+    pointer-events: none;
+    z-index: 999999;
+}
+
+.cursor::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    z-index: 999999;
+    position: absolute;
+    border: 8px solid #111;
+    border-radius: 50%;
+    opacity: .5;
+    top: -8px;
+    left: -8px;
+    animation: cursorAnim2 .5s infinite alternate;
+}
+
+@keyframes cursorAnim {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.7);
+    }
+}
+
+@keyframes cursorAnim2 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.4);
+    }
+}
+
+@keyframes cursorAnim3 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.expand {
+    animation: cursorAnim3 .5s forwards;
+    border: 1px solid red;
+}
+
+.favicon{
+    border-radius: 50%;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding:40px 100px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo{
+    position: relative;
+}
+
+header .logo img{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-left: -80px;
+    margin-top: -20px;
+    animation:Rotate 100s linear infinite ;
+    transition:  .5s ease-in-out;
+}
+
+@keyframes Rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+header .logo img:hover{
+    box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+header .toggle{
+    cursor: pointer;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: url(Images/menu.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:30px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:  all .09s ease-in-out;
+}
+
+header .toggle:before{
+    position: absolute;
+    content: 'Menue';
+    right: 40px;
+    text-transform: uppercase;
+    color: #111;
+    letter-spacing: 2px;
+    font-size: 14px;
+    padding: 2px 5px;
+    background: #fff;
+    transition:  all .09s ease-in-out;
+}
+
+header .toggle.active:before{
+    content: 'Close';
+}
+
+
+header .toggle.active{
+    background: url(Images/close.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:25px ;
+}
+
+section video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.glass{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 0%;
+    height:100%;
+    z-index: 5;
+    backdrop-filter: blur(15px);
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    transition-delay: 1s;
+}
+
+section.active .glass{
+    width: 100%;
+    backdrop-filter: blur(20px);
+    transition-delay: 0s;
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+section.active .content{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-200px);
+    transition-delay:0s ;
+}
+
+section .content{
+    position: relative;
+    text-align: center;
+    transition: 0.5s;
+    transition-delay: 1s;
+}
+
+section .content h2{
+    position: relative;
+    color: #fff;
+    font-size: 10vw;
+    font-weight: 400;
+    line-height: 0.55em;
+    z-index: 10;
+    text-shadow:  0 5px 5px rgba(0,0,0,0.2);
+    font-family: 'Cutive Mono', monospace;
+}
+
+section .content .sam{
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 0.2em;
+    font-weight: 500;
+    letter-spacing: 10px;
+    background: #FFF;
+    color: #111;
+    padding: 0 10px;
+    z-index: 1;
+    text-shadow: 0 5px 5px rgba(0,0,0,0.0);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #111,
+                0 0 20px #111
+                0 0 40px #111
+                0 0 80px #111
+                0 0 160px #111
+}
+
+section .sci{
+    position: absolute;
+    bottom: 40px;
+    right: 100px;
+    display: flex;
+    z-index: 100;
+    animation:moving 1s infinite linear;
+}
+
+section .sci li{
+    list-style-type: none;
+    margin: 5px;
+    padding: 3px 10px;
+    background: #fff;
+    transition: 0.5 ease-in-out;
+    transition-delay: calc(0.2s * var(--i));
+}
+
+@keyframes moving{
+    0%,100%{
+        transform: rotateX(0px);
+    }
+
+    50%{
+        transform: rotateX(200px);
+    }
+}
+
+section .sci li:hover{
+    background: #ccc;
+    transition: 0.5 ease-in-out;
+}
+
+section .sci li a{
+    color: #111;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+section.active .sci li{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    transition: 0.5s ease-in-out;
+} 
+
+section  .navigation{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+section  .navigation li{
+    list-style-type: none;
+    text-align: center;
+    margin: 15px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(200px);
+    transition-delay :calc(0.2s * var(--i));
+    transition: 0.5s ;
+}
+
+section.active .navigation li{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+section .navigation li a{
+    color: #111;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-weight: 300;
+    text-transform: uppercase;
+    background: #fff;
+    padding: 4px 10px;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+    transition: 0.5s ;
+}
+
+section .navigation li a:hover{
+    background-color: #111;
+    color :#fff;
+    letter-spacing: 10px;
+    backdrop-filter: blur(0);   
+    transition: 0.5s ;
+}
+
+
+section .copy{
+    padding:0 10px 10px 0;
+    background:#111;
+    color:white;
+    margin-top:690px;
+    margin-right:1300px;
+    font-size:2em;
+    font-weight:900;
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    transition:0.5s;
+}
+
+section .copy span a{
+    text-decoration:none;
+    background:#111;
+    color:white;
+}
+
+section.active .copy{
+    transform: translateY(-400px);
+    opacity:0;
+    visibility:hidden;
+}
+
+.music{
+    display: none;
+}
+
+section .circlebiggie{
+    width: 1000px;
+    height: 1000px;
+    background-color:  rgba(252, 223, 0,0.1) ;
+    display: flex;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    margin-left: 1000px;
+    animation : moveHori 5s cubic-bezier(0.55, 0.055, 0.675, 0.19) infinite;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+
+section.active .circlebiggie{
+    opacity: 0;
+    transition-delay: 1s;
+} 
+
+@keyframes moveHori{
+    0%,100%{
+        transform: translateX(0px);
+    }
+
+    50%{
+        transform: translateX(-1000px);
+    }
+}
+
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}

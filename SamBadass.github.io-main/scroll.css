@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}   
+
+.load{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    opacity: 1;
+    background-color: #042104;
+    animation: AnimateBg 10s linear infinite;
+    transition:  all 0.5s ease-in-out;
+}
+
+@keyframes animateScale{
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(0); 
+    }
+}
+
+@keyframes AnimateBg{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.load .loader{
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.load .loader span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+}
+
+.load .loader span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #00ff0a;
+    box-shadow: 0 0 10px #00ff0a,
+                0 0 20px #00ff0a,
+                0 0 40px #00ff0a,
+                0 0 60px #00ff0a,
+                0 0 80px #00ff0a,
+                0 0 100px #00ff0a;
+    animation: animateScale 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+.load-fin{
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #001300;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    animation: ChangeColour 5s linear infinite;
+}
+
+@keyframes ChangeColour{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+
+    100%{
+        filter: hue-rotate(360deg);
+    }   
+}
+
+section span{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: block;
+    animation: ChangeColour 5s linear infinite; 
+}
+
+span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00ff0a;
+    transform: scale(.1);
+    box-shadow: 0 0 10px #00ff0a, 
+                0 0 20px #00ff0a,
+                0 0 40px #00ff0a,
+                0 0 60px #00ff0a,
+                0 0 80px #00ff0a,
+                0 0 100px #00ff0a;
+    border-radius: 50%;
+    pointer-events: none; 
+    transition: 2s;
+}
+
+span:hover::before{
+    transform: scale(1);
+    transition: 0s;   
+}
