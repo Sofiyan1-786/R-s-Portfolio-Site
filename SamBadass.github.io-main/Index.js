@@ -6,9 +6,8 @@ function menueToggle(){
 }
 
 var typed = new Typed(".typing", {
-    strings: ["Yotuber", "Hacker", "Progammer", "VIRGIN", "Teacher", "Nobody", "Vlogger", "Person", "Dark Theme Person"
-                ,"Porn Watcher", "Stud", "Pro", "F***K YOU", "Pythoner", "Java Something", "English Carrymintai", "Roaster",
-                "Chintu progammer"],
+    strings: ["Yotuber", "Progammer", "Vlogger","Dark Theme Person"
+                ,"C++", "Miro-processor", "GhatalToPoland","RoboticsRevolution"],
             typeSpeed: 100,
             backSpeed: 60,
             loop:true
