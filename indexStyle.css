@@ -494,7 +494,7 @@ section.active .circlebiggie{
 .specific-body-wrapper .container {
     position: relative;
     display: grid;
-    grid-template-columns: 25fr 25fr 25fr 25fr;
+    grid-template-columns: 25fr 25fr 25fr 12fr;
     gap: 1em;
     width: 900px;
     height: 500px;
